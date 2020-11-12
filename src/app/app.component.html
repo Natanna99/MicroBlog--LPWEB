@@ -1,36 +1,61 @@
-
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand">Navbar</a>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-</nav>
-
-<br><br>
-<div class="col-md-6 offset-md-3">
-  <div class="card">
-    <div class="card-header">
-      <h5>Inicio</h5>
+<div class="row">
+  <div class="col-md-3">
+    <div class="card" style="position: fixed; width: 300px;">
+      <div class="card-header">
+        <h5><img src="https://img.myloview.com.br/adesivos/imagem-de-perfil-padrao-160-27677370.jpg" width="40"
+            height="40" alt="..." class="rounded-circle border border-warning"> Blog OTK</h5>
+      </div>
+      <div class="card-body">
+        <h6><i class="fa fa-home"></i> Inicio</h6>
+        <hr>
+        <h6><i class="fa fa-hashtag"></i> Explorar</h6>
+        <hr>
+        <h6><i class="fa fa-bell"></i> Notificações</h6>
+        <hr>
+        <h6><i class="fa fa-envelope"></i> Mensagem</h6>
+        <hr>
+        <h6><i class="fa fa-bookmark"></i> Itens Salvos</h6>
+      </div>
     </div>
-    <div class="card-body">
-      <form>
-          <div class="row no-gutters">
-            <div class="col-md-1.50">
-              <img src="https://img.myloview.com.br/adesivos/imagem-de-perfil-padrao-160-27677370.jpg" width="60" height="60"
-              alt="..." class="rounded-circle border border-warning">
+  </div>
+
+  <div>
+    <div style=" width: 600px;">
+      <div class="card" style="padding-top: 55px;">
+        <div class="card-body">
+          <form #cadastro="ngForm" (submit)='salvar()'>
+            <div class="row no-gutters">
+              <div class="col-md-1.50">
+                <img src="https://img.myloview.com.br/adesivos/imagem-de-perfil-padrao-160-27677370.jpg" width="50"
+                  height="50" alt="..." class="rounded-circle border border-warning">
+              </div>
+              <div class="col-md-10 ">
+                <textarea class="form-control border border-white" id="descricao" name="descricao" [(ngModel)]="descricao" cols="50" rows="2"
+                  maxlength=20 placeholder="Digite aqui"></textarea>
+              </div>
             </div>
-            <div class="col-md-10 ">
-                <textarea class="form-control border border-white" id="descricao" name="descricao" cols="60" rows="2" maxlength=3 ></textarea>
+            <div style='padding-top: 5px;'>
+            <button type="submit" class="btn btn-primary" style="border-radius: 50px ; font-size: 13px; margin-left: 460px; ">Publicar</button>
             </div>
-          </div>
-      <p></p>
+          </form>
+        </div>
+      </div>
       <div>
-        <i class="fa fa-pencil-square"></i>
-      <i class="far fa-image-square"></i>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+        <app-lista-de-publicacao
+        [posts]="posts"
+        [editando]="editando"
+        (onExcluir)="excluir($event)"
+        (onEditar)="editar($event)">
+        </app-lista-de-publicacao>
+
+      </div>
     </div>
-      </form>
+    <div class="col" style="position: fixed; top: 0%; left: 23%; width: 643px;">
+      <div class="card">
+        <div class="card-header">
+          Pagina Inicial
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,16 @@
+<div class="card" >
+    <div class="card-body" *ngFor='let publicacao of posts'>
+      <div class="row no-gutters">
+        <div class="col-md-1.50">
+          <img src="https://img.myloview.com.br/adesivos/imagem-de-perfil-padrao-160-27677370.jpg" width="50"
+            height="50" alt="..." class="rounded-circle border border-warning"></div>
+        <div class="col-md-1.50">
+          <h7><b> asuka_99 </b></h7><label> - @asuka_99</label>
+          <h5> {{publicacao.descricao}}</h5>
+        </div>
+      </div>
+      <div>
+      <h5><i class="fa fa-trash" style="font-size: 20px; margin-left: 20px;" (click)="excluir(publicacao)"> </i>
+        <i class="fa fa-edit" style="font-size: 20px; margin-left: 100px;" (click)="editar(publicacao)"> </i></h5></div>
+    </div>
+  </div>
